@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Remote Development Kit | V1 - Client</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./style/style.css">
+        <link rel="icon" href="./images/logo.jpg">
+        <!--CodeMirror CSS-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/ayu-mirage.min.css">
+        <style>
+            .CodeMirror {
+                        height: 100% !important;
+                        width: 100% !important;
+                        border: none !important;
+                        font-family: Arial, Helvetica, sans-serif !important;
+                        font-size: 20px !important;
+                        text-align: left !important;
+                    }
+        </style>
+        <!--CodeMirror CSS END.-->
+    </head>
+    <body>
+        <h1>* RemoteDevelopmentKit V1 - Client (portable) *</h1>
+        <div id="realTopBar">
+            <h2>- Top bar -</h2>
+            <div id="topbar">
+                <p id="wassup">Please, login...</p>
+                <input id="lgout" type="button" class="dangerous" value="Logout" onclick="history.go(0)" style="visibility: hidden;">
+            </div>
+        </div>
+        <div id="settings">
+            <h2>- Settings -</h2>
+            <input id="server" type="text" placeholder="server URL">
+            <input id="port" type="number" placeholder="listening port">
+            <input id="password" type="password" placeholder="server password">
+            <input type="button" value="🔑 Login" onclick="login()">
+            <p>ADVICE : use the admin password if you plan to create/delete file/folders/projects</p>
+        </div>
+        <div id="projSelector" class="selector" style="visibility: hidden;">
+            <h2>- Select project -</h2>
+            <select id="project">
+
+            </select>
+            <input type="button" value="📂 Open project" onclick="openProject()">
+            <input type="button" value="📁 New project" onclick="npWindow('open')">
+            <input type="button" class="dangerous" value="🗃️ Delete project" onclick="delProj()">
+        </div>
+        <div id="cp" style="visibility: hidden; height: 0px;">
+            <h2>- Create a new project -</h2>
+            <input id="projectName" type="text" placeholder="project name">
+            <input type="button" value="✒️ Create !" onclick="np()">
+            <input type="button" class="dangerous" value="❌ Cancel" onclick="npWindow('close')">
+        </div>
+        <div id="IDE" style="visibility: hidden;">
+            <h2>- RemoteDevelopmentKit IDE -</h2>
+            <div id="fSelector" class="selector">
+                <h2>Select file</h2>
+                <input id="thePath" type="text" placeholder="Path to file/folder">
+                <select id="bhelper">
+
+                </select>
+                <input type="button" value="🖋️ Open" onclick="openFile()">
+                <input type="button" value="🗄️ Set path to (directory)" onclick="setPath()">
+                <input type="button" value="🪛 Create (file)" onclick="createFile()">
+                <input type="button" value="📁 Create (directory)" onclick="makedir()">
+                <input type="button" class="dangerous" value="🎉 close (file)" onclick="closeFile()">
+                <input type="button" class="dangerous" value="❌ delete (file)" onclick="deleteFile()">
+                <input type="button" class="dangerous" value="🗃️ Delete (directory)" onclick="rmv()">
+            </div>
+            <div id="saveStats">
+                <input type="button" value="💾 Save" onclick="save()">
+            </div>
+            <h2>Code Input</h2>
+            <textarea id="codeIN" rows="25" class="CodeMirror"></textarea>
+        </div>
+        <div id="debugger" style="visibility: hidden;">
+            <!--TODO : Dual debug console : slow console (software exec result) and instant console (test commad result) -->
+            <h2>- X2 Debug Console -</h2>
+            <h3>debug inputs/outputs</h3>
+            <h4>Slow Debug Console</h4>
+            <textarea id="sdbgIO" rows="25"></textarea>
+            <h4>Fast Debug Console</h4>
+            <textarea id="dbgIO" rows="25"></textarea>
+            
+            <input type="button" value="🪲 Send command (sdbg)" onclick="slowDebug()">
+            <input type="button" value="🦋 Send command (dbg)" onclick="fastDebug()">
+            <input type="button" value="🦋🪲 Send commands (ddbg)" onclick="dualDebug()">
+            <p style="color: yellow !important;">First console : slow debug (to debug code with infinite loops) | sdbg</p>
+            <p style="color: greenyellow !important;">Second console : instant debug (to debug code that run almost instantly) | dbg</p>
+            <p>To use both at the same time, use the ddbg button</p>
+            <p>Please, clear the used console(s) before running a new command</p>
+        </div>
+        <div class="footer">
+            <h2>- Footer -</h2>
+            <p>&copy; 2024, Arthur CALON, RemoteDevelopmentKit (V1/Version 1)</p>
+            <a href="useterms.html">use terms &amp; privacy policy</a>
+        </div>
+        <script src="code/cli.js"></script>
+        <!--CodeMirror JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+        <script id="cms">
+            const editor=CodeMirror.fromTextArea(document.getElementById('codeIN'),{lineNumbers:true,mode:'javascript',theme:'ayu-mirage',styleActiveLine:true,lineWrapping:true})
+        </script>
+        <!--CodeMirror JS END.-->
+    </body>
+</html>

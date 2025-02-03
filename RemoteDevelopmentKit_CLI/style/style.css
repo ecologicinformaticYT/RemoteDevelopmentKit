@@ -1,0 +1,107 @@
+body{
+    background-color: gray;
+    font-size: 18px;
+}
+
+.dangerous{
+    color: red !important;
+    background-color: gray
+}
+
+h1{
+    color: gold;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2{
+    color: black;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+}
+
+h3{
+    color: blue;
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+}
+
+div{
+    color: blue;
+    width: 80%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"]{
+    color: black;
+    background-color: white;
+    height: 10%;
+    width: 90%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size: 18px;
+}
+
+input[type="number"]{ 
+    color: black;
+    background-color: white;
+    height: 10%;
+    width: 90%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size: 18px;
+}
+
+select{
+    color: blue;
+    background-color: darkgray;
+    height: 10%;
+    width: 90%;
+    margin-top: 1px;
+    margin-bottom: 2px;
+    font-size: 18px;
+}
+
+input[type="password"]{
+    color: black;
+    background-color: white;
+    height: 10%;
+    width: 90%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size: 18px;
+}
+
+input[type="button"]{
+    color: blue;
+    background-color: darkgray;
+    height: 10%;
+    width: 90%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size: 18px;
+}
+
+textarea[id="dbgIO"]{
+    height: 50%;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+
+    color: greenyellow;
+    background-color: black;
+}
+
+textarea[id="sdbgIO"]{
+    height: 50%;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+
+    color: yellow;
+    background-color: black;
+}
